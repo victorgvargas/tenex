@@ -1,5 +1,7 @@
 import { Flex } from "antd";
-import Link from "next/link";
+import NextLink from "next/link";
+import Title from "antd/es/typography/Title";
+import Link from "antd/es/typography/Link";
 import "./Header.css";
 
 interface HeaderProps {
@@ -11,14 +13,14 @@ const Header: React.FC<HeaderProps> = ({ logo, navMenu }) => {
     return (
         <header>
             <Flex justify="space-between" align="center" className="tenex-header">
-                <h1>
+                <Title level={3}>
                     {logo}
-                </h1>
+                </Title>
                 <Flex gap={8}>
                     {navMenu.map((item, index) => (
-                        <Link key={index} href={`#${item}`}>
-                            {item}
-                        </Link>
+                        <NextLink key={index} href={`#${item}`}>
+                            <Link>{item}</Link>
+                        </NextLink>
                     ))}
                 </Flex>
             </Flex>
